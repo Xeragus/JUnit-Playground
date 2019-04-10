@@ -48,7 +48,7 @@ class SetIntersectionValidatorTest {
         assertThrows(NullPointerException.class, () -> setIntersectionValidator.intersection(s1, s2));
     }
 
-    // interface based test 2
+    // interface based test 3
     // set 2 is null
     @Test
     void testSetTwoIsNull() {
@@ -58,5 +58,45 @@ class SetIntersectionValidatorTest {
         assertThrows(NullPointerException.class, () -> setIntersectionValidator.intersection(s1, s2));
     }
 
-    // functional based test 1
+    // functionality based test 1
+    // fully intersect
+    @Test
+    public void testFullIntersection() {
+        s1.add("Arsenal");
+        s1.add("Valencia");
+        s2.add("Arsenal");
+        s2.add("Valencia");
+        s3.add("Arsenal");
+        s3.add("Valencia");
+
+        assertEquals(s3, setIntersectionValidator.intersection(s1, s2));
+    }
+
+    // functionality based test 1
+    // partially intersect
+    @Test
+    public void testPartialIntersection() {
+        s1.add("Arsenal");
+        s1.add("Valencia");
+        s2.add("Arsenal");
+        s2.add("Celta");
+        s2.add("Valencia");
+        s3.add("Arsenal");
+        s3.add("Valencia");
+
+        assertEquals(s3, setIntersectionValidator.intersection(s1, s2));
+    }
+
+    // functionality based test 3
+    // don't intersect
+    @Test
+    public void testEmptyIntersection() {
+        s1.add("Arsenal");
+        s1.add("Valencia");
+        s2.add("CSKA Moscow");
+        s2.add("Celta");
+        s2.add("Real Sociedad");
+
+        assertEquals(s3, setIntersectionValidator.intersection(s1, s2));
+    }
 }
