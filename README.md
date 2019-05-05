@@ -1,2 +1,2 @@
 # JUnit-Playground
-Unit testing with JUnit Jupiter & Mockito
+Unit testing with JUnit Jupiter
